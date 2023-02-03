@@ -1,0 +1,11 @@
+.navbar {
+  max-width: 1024px;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  justify-content: space-between;
+}
+nav {
+  display: flex;
+  gap: 50px;
+}

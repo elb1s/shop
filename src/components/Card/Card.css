@@ -1,0 +1,25 @@
+.card {
+  background: #fff;
+  width: 300px;
+  margin: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 5px;
+}
+.card img {
+  height: 200px;
+  width: 100%;
+  border-radius: 5px;
+  background-size: cover;
+}
+
+.card h1 {
+  font-size: 16px;
+  padding: 10px 0 10px 0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
