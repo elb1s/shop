@@ -1,0 +1,24 @@
+.checkout {
+  margin-top: 100px;
+}
+.container {
+  max-width: 1024px;
+  margin: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.container img {
+  width: 150px;
+  height: 150px;
+}
+.container h1 {
+  font-size: 30px;
+}
+
+.texts {
+  padding-left: 50px;
+}

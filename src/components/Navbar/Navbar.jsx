@@ -10,29 +10,49 @@ import { RiShoppingBag2Fill } from "react-icons/ri";
 import { HiHome } from "react-icons/hi";
 
 import "./Navbar.css";
+import { AuthContext } from "../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const { theme, setTheme } = useContext(AppContext);
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    try {
+      await logOut();
+      navigate("/login");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleTheme = () => {
+    setTheme(!theme);
+    localStorage.setItem("theme", !theme);
+  };
   return (
     <div className="navbar">
-      <div
-        onClick={() => {
-          setTheme(!theme);
-        }}
-      >
+      <div onClick={handleTheme}>
         {theme ? <BsFillMoonFill /> : <BsSunFill />}
       </div>
-      <NavLink to="/">
-        <HiHome />
-      </NavLink>
-      <nav>
-        <div>
-          <p>Hoşgeldin Süleyman</p>
-          {/* <img /> */}
-        </div>
-        <NavLink to="/checkout">
-          <RiShoppingBag2Fill />
-        </NavLink>
-      </nav>
+      {user && (
+        <>
+          {" "}
+          <NavLink to="/">
+            <HiHome />
+          </NavLink>
+          <nav>
+            <div>
+              <p>Hoşgeldiniz {user?.displayName}</p>
+            </div>
+            <NavLink to="/checkout">
+              <RiShoppingBag2Fill />
+            </NavLink>
+
+            {user !== null && <button onClick={handleSignOut}>Log out</button>}
+          </nav>
+        </>
+      )}
     </div>
   );
 };

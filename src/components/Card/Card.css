@@ -19,7 +19,18 @@
   padding: 10px 0 10px 0;
 }
 
-.buttons {
+.card button {
   display: flex;
-  justify-content: flex-end;
+  background-color: black;
+  color: white;
+  padding: 5px 25px;
+  border: none;
+  transition: 0.5s;
+  margin: auto;
+  border-radius: 5px;
+}
+.card button:hover {
+  background-color: gray;
+  color: black;
+  cursor: pointer;
 }

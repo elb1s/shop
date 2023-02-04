@@ -7,7 +7,7 @@ export const AppContextProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("checkoutList")) || []
   );
 
-  const [theme, setTheme] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || []);
 
   useEffect(() => {
     localStorage.setItem("checkoutList", JSON.stringify(checkoutList));
@@ -19,6 +19,7 @@ export const AppContextProvider = ({ children }) => {
 
   const values = {
     checkoutList,
+    setCheckoutList,
     addToCheckoutList,
     theme,
     setTheme,

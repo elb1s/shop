@@ -17,7 +17,7 @@ const ProductDetail = () => {
       {data && (
         <>
           <div>
-            <img src={data.images[0]} />
+            <img src={data.images[0]} alt={data.title} />
           </div>
           <div>
             <h1>{data.title} </h1>

@@ -1,29 +1,31 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../../contexts/AppContext";
-
+import "./Checkout.css";
 const Checkout = () => {
-  const { checkoutList } = useContext(AppContext);
-  const uniqueCheckoutList = [];
+  const { checkoutList, setCheckoutList } = useContext(AppContext);
 
-  checkoutList.forEach((item) => {
-    let productIndex = uniqueCheckoutList.findIndex((p) => p.id === item.id);
-    if (productIndex === -1) {
-      uniqueCheckoutList.push({ ...item, quantity: 1 });
-    } else {
-      uniqueCheckoutList[productIndex].quantity += 1;
-    }
-  });
-
-  console.log(uniqueCheckoutList);
   return (
-    <div>
-      {uniqueCheckoutList &&
-        uniqueCheckoutList.map((item) => (
-          <div>
-            {item.title} {item.quantity}
-            <img src={item.images[0]} alt={item.title} />
-          </div>
-        ))}
+    <div className="checkout">
+      {checkoutList.length === 0 ? (
+        <div>THERE IS NO ITEM IN YOUR BAG!</div>
+      ) : (
+        checkoutList.map((item) => {
+          return (
+            <div className="container" key={item.id}>
+              <div>
+                <img src={item.images[0]} alt={item.title} />
+              </div>
+              <div className="texts">
+                <h1>{item.title} </h1>
+                <p>{item.description} </p>
+                <button>+</button>
+                <span>{item.quantity}</span>
+                <button>-</button>
+              </div>
+            </div>
+          );
+        })
+      )}
     </div>
   );
 };
