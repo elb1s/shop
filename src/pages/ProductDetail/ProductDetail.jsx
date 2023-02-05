@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
+import Loader from "../../components/Loader/Loader";
+import { AppContext } from "../../contexts/AppContext";
 import { useFetch } from "../../hooks/useFetch";
-
+import "./ProductDetail.css";
 const ProductDetail = () => {
+  const { addToCheckoutList } = useContext(AppContext);
   const { id } = useParams();
   const { data, loading, error } = useFetch(
     `https://api.escuelajs.co/api/v1/products/${id}`
@@ -12,19 +15,24 @@ const ProductDetail = () => {
   }
   return (
     <div>
-      {loading && <div>LOADING</div>}
+      {loading && (
+        <div className="loader">
+          <Loader />
+        </div>
+      )}
 
       {data && (
-        <>
-          <div>
+        <div className="productDetail">
+          <div className="imgDiv">
             <img src={data.images[0]} alt={data.title} />
           </div>
-          <div>
+          <div className="detailTexts">
             <h1>{data.title} </h1>
-            <p> $ {data.price} </p>
-            <p>{data.description}</p>
+            <p id="desc">{data.description}</p>
+            <p id="price"> $ {data.price} </p>
+            <button onClick={() => addToCheckoutList(data)}>+</button>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

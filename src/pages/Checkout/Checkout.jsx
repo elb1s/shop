@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { AppContext } from "../../contexts/AppContext";
 import "./Checkout.css";
 const Checkout = () => {
-  const { checkoutList, setCheckoutList } = useContext(AppContext);
+  const { checkoutList, increaseQuantity, decreaseQuantity } =
+    useContext(AppContext);
 
   return (
     <div className="checkout">
@@ -18,9 +19,10 @@ const Checkout = () => {
               <div className="texts">
                 <h1>{item.title} </h1>
                 <p>{item.description} </p>
-                <button>+</button>
+                <button onClick={() => increaseQuantity(item)}>+</button>
                 <span>{item.quantity}</span>
-                <button>-</button>
+                <button onClick={() => decreaseQuantity(item)}>-</button>
+                <p>{item.quantity * item.price} </p>
               </div>
             </div>
           );

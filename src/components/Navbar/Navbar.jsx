@@ -37,19 +37,18 @@ const Navbar = () => {
       </div>
       {user && (
         <>
-          {" "}
-          <NavLink to="/">
-            <HiHome />
-          </NavLink>
           <nav>
-            <div>
-              <p>Hoşgeldiniz {user?.displayName}</p>
-            </div>
-            <NavLink to="/checkout">
-              <RiShoppingBag2Fill />
-            </NavLink>
+            <p>Hoşgeldiniz, {user?.displayName}</p>
+            <div className="rightSide">
+              <NavLink to="/">
+                <HiHome className="iconHome" />
+              </NavLink>
+              <NavLink to="/checkout">
+                <RiShoppingBag2Fill />
+              </NavLink>
 
-            {user !== null && <button onClick={handleSignOut}>Log out</button>}
+              {user && <button onClick={handleSignOut}>Log out</button>}
+            </div>
           </nav>
         </>
       )}
