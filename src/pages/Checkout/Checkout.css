@@ -62,3 +62,61 @@
   scale: 0.8;
   cursor: pointer;
 }
+
+#total {
+  font-size: 20px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 20px;
+  }
+  .noItem {
+    font-size: 24px;
+  }
+  .container img {
+    width: 150px;
+  }
+  .texts #itemPrice {
+    font-size: 18px;
+  }
+  .texts h1 {
+    font-size: 16px;
+  }
+  #order {
+    font-size: 16px;
+  }
+  #total {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .container {
+    max-width: 100%;
+    padding: 20px;
+  }
+  .noItem {
+    font-size: 30px;
+  }
+  .container img {
+    width: 175px;
+  }
+  .texts #itemPrice {
+    font-size: 20px;
+  }
+  .texts h1 {
+    font-size: 18px;
+  }
+  #order {
+    font-size: 18px;
+  }
+  #total {
+    font-size: 18px;
+  }
+}

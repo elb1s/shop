@@ -6,9 +6,9 @@ import "./Checkout.css";
 const Checkout = () => {
   const { checkoutList, increaseQuantity, decreaseQuantity, giveOrder } =
     useContext(AppContext);
-
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+
   useEffect(() => {
     if (user === null) {
       navigate("/");
@@ -20,13 +20,14 @@ const Checkout = () => {
       <button id="order" onClick={giveOrder}>
         Give order
       </button>
+      <h1 id="total">TOTAL: 0</h1>
       {checkoutList.length === 0 ? (
         <div className="noItem">THERE IS NO ITEM IN YOUR BAG!</div>
       ) : (
-        checkoutList.map((item) => {
+        checkoutList.map((item, idx) => {
           return (
-            <>
-              <div className="container" key={item.id}>
+            <div key={idx}>
+              <div className="container">
                 <div>
                   <img src={item.images[0]} alt={item.title} />
                 </div>
@@ -49,7 +50,7 @@ const Checkout = () => {
                   </button>
                 </div>
               </div>
-            </>
+            </div>
           );
         })
       )}
