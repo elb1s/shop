@@ -1,9 +1,15 @@
 .navbar {
   max-width: 1024px;
+  padding: 0px 20px;
+  background-color: rgb(251, 249, 249);
   display: flex;
-  margin: auto;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  margin: auto;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 nav {
   padding: 10px;
@@ -12,17 +18,18 @@ nav {
 }
 nav button {
   padding: 5px 10px;
-  background-color: orange;
+  background-color: #f0e269;
   border: none;
   border-radius: 10px;
   transition: 0.4s;
+  font-weight: 800;
 }
 
 nav button:hover {
   padding: 5px 10px;
   cursor: pointer;
   scale: 0.9;
-  background-color: orange;
+  background-color: #f7e441;
   border: none;
   border-radius: 10px;
 }

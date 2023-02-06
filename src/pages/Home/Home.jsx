@@ -1,16 +1,28 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Card from "../../components/Card/Card";
 import Loader from "../../components/Loader/Loader";
+import { AppContext } from "../../contexts/AppContext";
+import { AuthContext } from "../../contexts/AuthContext";
 import { useFetch } from "../../hooks/useFetch";
 import "./Home.css";
 const Home = () => {
+  const { user } = useContext(AuthContext);
+  const { theme } = useContext(AppContext);
+
   const { data, loading, error } = useFetch(
     "https://api.escuelajs.co/api/v1/products"
   );
 
-  if (error) {
-    console.log(error);
-  }
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user === null) {
+      navigate("/");
+    } else if (user) {
+      navigate("/home");
+    }
+  }, [user]);
 
   return (
     <div>
@@ -19,8 +31,9 @@ const Home = () => {
           <Loader />
         </div>
       )}
+      {error && <div>{error} </div>}
       {data && (
-        <div className="home">
+        <div className={`home ${theme ? "darkTheme" : ""}`}>
           {data.map((item, idx) => {
             return <Card product={item} key={idx} />;
           })}

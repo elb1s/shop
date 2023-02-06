@@ -13,10 +13,10 @@ function App() {
         <AppContextProvider>
           <Navbar />
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/home" element={<Home />} />
             <Route path="checkout" element={<Checkout />} />
             <Route path="productdetail/:id" element={<ProductDetail />} />
-            <Route path="/login" element={<Login />} />
           </Routes>
         </AppContextProvider>
       </AuthContextProvider>

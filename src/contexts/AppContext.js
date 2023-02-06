@@ -7,8 +7,6 @@ export const AppContextProvider = ({ children }) => {
     JSON.parse(localStorage.getItem("checkoutList")) || []
   );
 
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || []);
-
   useEffect(() => {
     localStorage.setItem("checkoutList", JSON.stringify(checkoutList));
   }, [checkoutList]);
@@ -50,14 +48,20 @@ export const AppContextProvider = ({ children }) => {
     localStorage.setItem("checkoutList", JSON.stringify(updatedCheckoutList));
   };
 
+  const giveOrder = () => {
+    if (checkoutList.length === 0) return alert("There is no item!");
+    localStorage.setItem("checkoutList", JSON.stringify([]));
+    setCheckoutList([]);
+    alert("Your order has been received!");
+  };
+
   const values = {
     checkoutList,
     setCheckoutList,
     addToCheckoutList,
-    theme,
-    setTheme,
     increaseQuantity,
     decreaseQuantity,
+    giveOrder,
   };
 
   return <AppContext.Provider value={values}>{children}</AppContext.Provider>;

@@ -40,7 +40,7 @@
   font-size: 30px;
 }
 .detailTexts button {
-  background-color: orange;
+  background-color: #f0e269;
   border: none;
   border-radius: 10px;
   padding: 10px;
@@ -48,6 +48,7 @@
 }
 
 .detailTexts button:hover {
+  background-color: #f7e441;
   scale: 0.8;
   cursor: pointer;
 }
