@@ -2,7 +2,6 @@
   background: #fff;
   width: 300px;
   margin: 20px;
-
   box-sizing: border-box;
   padding: 20px;
   border-radius: 5px;
@@ -16,8 +15,8 @@
 .divImg {
   justify-content: center;
   margin: auto;
-  width: 100px;
-  height: 200px;
+  width: 200px;
+  height: 300px;
   overflow: hidden;
   position: relative;
 }
