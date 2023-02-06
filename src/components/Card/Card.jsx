@@ -8,7 +8,9 @@ const Card = ({ product }) => {
   return (
     <div className="card">
       <Link className="link" to={`/productdetail/${product.id}`}>
-        <img src={product.images[0]} alt={product.title} />
+        <div className="divImg">
+          <img src={product.image} alt={product.title} />
+        </div>
         <h1>{product.title} </h1>
         <p>${product.price} </p>
       </Link>

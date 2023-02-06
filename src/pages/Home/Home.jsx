@@ -9,7 +9,7 @@ const Home = () => {
   const { user } = useContext(AuthContext);
 
   const { data, loading, error } = useFetch(
-    "https://api.escuelajs.co/api/v1/products"
+    "https://fakestoreapi.com/products"
   );
 
   const navigate = useNavigate();
